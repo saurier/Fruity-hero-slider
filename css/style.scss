@@ -1,0 +1,142 @@
+$clr-bg: #B6CD87;
+$clr-white: #ffffff;
+$ff-primary: 'Clash Display', sans-serif;
+
+@import url('https://fonts.cdnfonts.com/css/clash-display');
+
+*::after,
+*::before,
+*
+{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html{
+    font-size: clamp(6px, 1vw, 10px);
+}
+
+html,
+body{
+    height: 100%;
+}
+
+body{
+    font-size: 1rem;
+    font-family: $ff-primary;
+    background-color: $clr-bg;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    user-select: none;
+    pointer-events: none;
+}
+
+%center-content{
+    display: grid;
+    place-items: center;
+}
+
+.banner{
+    position: relative;
+    min-height: calc(var(--vh) * 100);
+    padding: 5rem 2rem;
+    @extend %center-content;
+}
+
+.bottle__mask{
+    &-wrapper{
+        position: relative;
+        display: inline-block;
+        isolation: isolate;
+    }
+    position: relative;
+    display: inline-block;
+    mask-image: url('../img/bottle-mask/bottle.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
+
+    &__img{
+        max-height: 40rem;
+    }
+
+    &__shadow{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translateY(30%) translateX(70%);
+        z-index: -1;
+        max-width: 35vw;
+
+        @media (max-width: 991.98px) {
+            display: none;
+        }
+    }
+}
+
+%full-view{
+    position: absolute;
+    inset: 0;
+}
+
+.background{
+    &__slider{
+        @extend %full-view;
+
+        .slick-list,
+        .slick-track
+        {
+            @extend %full-view;
+        }
+    }
+
+    &__slide{
+        position: relative;
+
+        &::after{
+            content: attr(data-text);
+            //font-size: max(18rem, 20vw);
+            font-weight: 600;
+            color: $clr-white;
+            @extend %full-view;
+            @extend %center-content;
+        }
+    }
+}
+
+.fruits{
+    &__slider{
+        @extend %full-view;
+
+        .slick-list,
+        .slick-track
+        {
+            @extend %full-view;
+            height: 100% !important;
+        }
+    }
+
+    &__slide{
+        background-size: contain;
+        @media (min-width: 992px) {
+            background-size: cover;
+        }
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100% !important;
+    }
+}
+
+.label{
+    &__slider{
+        @extend %full-view;
+        margin: auto;
+        mix-blend-mode: multiply;
+    }
+}

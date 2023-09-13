@@ -1,0 +1,24 @@
+@import url(https://fonts.cdnfonts.com/css/clash-display);
+*,::after,::before{margin:0;padding:0;outline:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:clamp(6px,1vw,10px)}
+body,html{height:100%}
+body{font-size:1rem;font-family:"Clash Display",sans-serif;background-color:#b6cd87}
+img{display:block;max-width:100%;-webkit-user-select:none;-moz-user-select:none;user-select:none;pointer-events:none}
+.background__slide::after,.banner{display:grid;place-items:center}
+.banner{position:relative;min-height:calc(var(--vh) * 100);padding:5rem 2rem}
+.bottle__mask{position:relative;display:inline-block;-webkit-mask-image:url(../img/bottle-mask/bottle.png);mask-image:url(../img/bottle-mask/bottle.png);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:cover;mask-size:cover}
+.bottle__mask-wrapper{position:relative;display:inline-block;isolation:isolate}
+.bottle__mask__img{max-height:40rem}
+.bottle__mask__shadow{position:absolute;bottom:0;right:0;transform:translateY(30%) translateX(70%);z-index:-1;max-width:35vw}
+@media (max-width:991.98px){
+.bottle__mask__shadow{display:none}
+}
+.background__slide::after,.background__slider,.background__slider .slick-list,.background__slider .slick-track,.fruits__slider,.fruits__slider .slick-list,.fruits__slider .slick-track,.label__slider{position:absolute;inset:0}
+.background__slide{position:relative}
+.background__slide::after{content:attr(data-text);font-size:max(18rem,20vw);font-weight:600;color:#fff}
+.fruits__slider .slick-list,.fruits__slider .slick-track{height:100%!important}
+.fruits__slide{background-size:contain;background-position:center;background-repeat:no-repeat;height:100%!important}
+@media (min-width:992px){
+.fruits__slide{background-size:cover}
+}
+.label__slider{margin:auto;mix-blend-mode:multiply}
